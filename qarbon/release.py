@@ -30,7 +30,7 @@ name = 'qarbon'
 #: the new substring. We have to avoid using either dashes or underscores,
 #: because bdist_rpm does not accept dashes (an RPM) convention, and
 #: bdist_deb does not accept underscores (a Debian convention).
-version_info = (0, 1, 0, 'dev', 0)
+version_info = (0, 2, 0, 'dev', 0)
 version = '.'.join(map(str, version_info[:3]))
 
 #: revision number

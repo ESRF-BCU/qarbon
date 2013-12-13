@@ -873,8 +873,8 @@ def main():
             msgbox.exec_()
 
     def tg_exc():
-        import PyTango
         try:
+            import PyTango
             PyTango.Except.throw_exception('TangoException',
                                            'A simple tango exception',
                                            'right here')
@@ -883,9 +883,9 @@ def main():
             msgbox.exec_()
 
     def tg_serv_exc():
-        import PyTango
-        dev = PyTango.DeviceProxy("sys/tg_test/1")
         try:
+            import PyTango
+            dev = PyTango.DeviceProxy("sys/tg_test/1")
             dev.read_attribute("throw_exception")
         except PyTango.DevFailed:
             msgbox = ErrorDialog(*sys.exc_info())
@@ -895,8 +895,8 @@ def main():
             msgbox.exec_()
 
     def py_tg_serv_exc():
-        import PyTango
         try:
+            import PyTango
             PyTango.Except.throw_exception('TangoException',
                                         'A simple tango exception',
                                         'right here')

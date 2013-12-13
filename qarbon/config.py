@@ -76,3 +76,13 @@ LOG_STREAM = DEFAULT_LOG_STREAM
 LOG_FILE_NAME = DEFAULT_LOG_FILE_NAME
 LOG_FILE_SIZE = DEFAULT_LOG_FILE_SIZE
 LOG_FILE_NUMBER = DEFAULT_LOG_FILE_NUMBER
+
+
+# ----------------------------------------------------------------------------
+# Application configuration
+# ----------------------------------------------------------------------------
+
+APPLICATION_NAME = "Generic GUI"
+APPLICATION_VERSION = "0.0.0"
+ORGANIZATION_NAME = ""
+ORGANIZATION_DOMAIN = ""

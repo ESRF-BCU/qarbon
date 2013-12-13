@@ -63,7 +63,7 @@ class PropertyEditor(QtGui.QWidget):
         self.__ui = ui = Ui_propertyEditor()
         ui.setupUi(self)
 
-        ui.focusButton.clicked.connect(self.__onFocus)
+        __ui.focusButton.clicked.connect(self.__onFocus)
 
         self.setQObject(qobject)
 
@@ -105,11 +105,11 @@ class PropertyEditor(QtGui.QWidget):
                 isWidget = qobject.isWidgetType()
                 propCount = metaObject.propertyCount()
 
-        ui.classLineEdit.setText(_class)
-        ui.classNameLineEdit.setText(className)
-        ui.superClassNameLineEdit.setText(superClassName)
-        ui.isWidgetLineEdit.setText(str(isWidget))
-        ui.focusButton.setEnabled(isWidget)
+        __ui.classLineEdit.setText(_class)
+        __ui.classNameLineEdit.setText(className)
+        __ui.superClassNameLineEdit.setText(superClassName)
+        __ui.isWidgetLineEdit.setText(str(isWidget))
+        __ui.focusButton.setEnabled(isWidget)
 
         propTree = ui.propertiesTreeWidget
 

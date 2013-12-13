@@ -28,9 +28,10 @@ program.
 __all__ = ["Application"]
 
 from qarbon import log
+from qarbon import config
 
 
-def Application(argv=None, **properties):
+def Application(argv=None, **kwargs):
     """Returns a QApplication.
 
     If the process has initialized before a QApplication it returns the
@@ -55,11 +56,13 @@ def Application(argv=None, **properties):
         label.show()
         app.exec_()
 
-    :param properties: currently unused
+    :param kwargs: currently unused
     :return: the QApplication
     :rtype: QtGui.QApplication"""
 
-    init_logging = properties.get('init_logging', False)
+    # It is important to initialize logging before Qt because Qt might
+    # fire some log messages
+    init_logging = kwargs.get('init_logging', False)
     if init_logging:
         log.initialize()
 
@@ -69,6 +72,23 @@ def Application(argv=None, **properties):
         if argv is None:
             from sys import argv
         app = QtGui.QApplication(argv)
+
+        init_application = kwargs.get('init_application', True)
+        init_organization = kwargs.get('init_organization', True)
+        if init_application:
+            app_name = kwargs.get('application_name', config.APPLICATION_NAME)
+            app.setApplicationName(app_name)
+            app_version = kwargs.get('application_version',
+                                     config.APPLICATION_VERSION)
+            app.setApplicationVersion(app_version)
+        if init_organization:
+            org_name = kwargs.get('organization_name',
+                                  config.ORGANIZATION_NAME)
+            app.setOrganizationName(org_name)
+            org_domain = kwargs.get('organization_domain',
+                                    config.ORGANIZATION_DOMAIN)
+            app.setOrganizationDomain(org_domain)
+
     elif argv:
         log.info("QApplication already initialized. argv will have no "
                  "effect")

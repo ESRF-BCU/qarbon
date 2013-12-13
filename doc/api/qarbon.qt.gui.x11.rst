@@ -1,7 +1,7 @@
 .. currentmodule:: qarbon.qt.gui
 
 qarbon.qt.gui.x11
-======================
+=================
 
 .. automodule:: qarbon.qt.gui.x11
 
@@ -10,8 +10,8 @@ qarbon.qt.gui.x11
     .. autosummary::
        :nosignatures:
        
-       XEmbedCommandWidget
-       XEmbedCommandWindow
+       XCommandWidget
+       XCommandWindow
        XTermWidget
        XTermWindow
    

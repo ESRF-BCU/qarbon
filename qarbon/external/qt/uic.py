@@ -117,3 +117,5 @@ elif __backend == 'PySide':
             uiFile.deleteLater()
 
         return None
+
+del getQt

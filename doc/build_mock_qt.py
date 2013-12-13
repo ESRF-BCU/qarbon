@@ -180,7 +180,8 @@ def main():
     module_names = [("sip", ()),
                     ("PyQt4", ("sip",)),
                     ("PyQt4.QtCore", ("sip",)),
-                    ("PyQt4.QtGui", ("sip", "PyQt4.QtCore",))]
+                    ("PyQt4.QtGui", ("sip", "PyQt4.QtCore",)),
+                    ("PyQt4.uic", ("sip",)), ]
     for module_name, imports in module_names:
         build_module(module_name, imports)
 

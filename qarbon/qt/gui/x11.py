@@ -345,6 +345,8 @@ class XTermWidget(XCommandWidget):
 class XTermWindow(XCommandWindow):
     """The QMainWindow version of :class:`XTermWidget`
 
+    Example::
+
         from qarbon.external.qt import QtGui
         from qarbon.qt.gui.application import Application
         from qarbon.qt.gui.x11 import XTermWidget

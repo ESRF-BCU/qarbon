@@ -6,7 +6,7 @@ python:
   - "3.3"
 # command to install dependencies
 install: 
-  - "pip install ."
+  - "sudo apt-get install python-qt4"
   - "pip install -r requirements.txt --use-mirrors"
 # command to run tests
 script: nosetests -v --where=qarbon -exe

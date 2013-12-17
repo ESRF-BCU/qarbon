@@ -6,6 +6,7 @@ python:
   - "3.3"
 # command to install dependencies
 install: 
+  - "sudo apt-get install python-sip"
   - "sudo apt-get install python-qt4"
   - "pip install -r requirements.txt --use-mirrors"
 # command to run tests

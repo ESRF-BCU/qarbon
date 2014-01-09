@@ -4,10 +4,13 @@ python:
   - "2.7"
   - "3.2"
   - "3.3"
+
 # command to install dependencies
+before_install:
+  - sudo apt-get install -qq python-sip python-qt4 pyqt4-dev-tools
+
 install: 
-  - "sudo apt-get install python-sip"
-  - "sudo apt-get install python-qt4"
   - "pip install -r requirements.txt --use-mirrors"
+
 # command to run tests
 script: nosetests -v --where=qarbon -exe

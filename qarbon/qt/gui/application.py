@@ -73,19 +73,19 @@ def Application(argv=None, **kwargs):
             from sys import argv
         app = QtGui.QApplication(argv)
 
-        init_application = kwargs.get('init_application', True)
-        init_organization = kwargs.get('init_organization', True)
+        init_application = kwargs.get('init_app', True)
+        init_organization = kwargs.get('init_org', True)
         if init_application:
-            app_name = kwargs.get('application_name', config.APPLICATION_NAME)
+            app_name = kwargs.get('app_name', config.APPLICATION_NAME)
             app.setApplicationName(app_name)
-            app_version = kwargs.get('application_version',
+            app_version = kwargs.get('app_version',
                                      config.APPLICATION_VERSION)
             app.setApplicationVersion(app_version)
         if init_organization:
-            org_name = kwargs.get('organization_name',
+            org_name = kwargs.get('org_name',
                                   config.ORGANIZATION_NAME)
             app.setOrganizationName(org_name)
-            org_domain = kwargs.get('organization_domain',
+            org_domain = kwargs.get('org_domain',
                                     config.ORGANIZATION_DOMAIN)
             app.setOrganizationDomain(org_domain)
 

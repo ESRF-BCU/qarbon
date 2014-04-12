@@ -39,7 +39,6 @@ For sampling, see the :ref:`qarbon-examples` and
     * :ref:`qarbon-examples`
     * :ref:`qarbon-api`
 
+Latest version can be found `here <http://qarbon.rtfd.org/>`_.
 
-.. _Qt: http://qt.digia.com/
-.. _PySide: http://www.pyside.org/ 
-.. _PyQt: http://www.riverbankcomputing.co.uk/software/pyqt/
+Developement version can be found `here <http://qarbon.rtfd.org/develop/>`_.

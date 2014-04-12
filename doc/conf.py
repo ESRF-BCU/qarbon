@@ -260,13 +260,26 @@ latex_documents = [
 # If false, no module index is generated.
 #latex_domain_indices = True
 
+# -- Options for RST ----------------------------------------------------------
+
+rst_epilog = """\
+.. _Python: http://python.org/
+.. _PyPi: https://pypi.python.org/pypi/
+.. _IPython: http://ipython.org/
+.. _numpy: http://www.numpy.org/
+.. _gevent: http://www.gevent.org/
+.. _boost-python: http://www.boost.org/libs/python/
+.. _Qt: http://qt.digia.com/
+.. _PySide: http://www.pyside.org/
+.. _PyQt: http://www.riverbankcomputing.co.uk/software/pyqt/
+"""
 
 # -- Options for manual page output -------------------------------------------
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ("index", "qarbon", u"qarbon Documentation",
+    ("index", "qarbon", u"Qarbon documentation",
      [u"Tiago Coutinho"], 1)
 ]
 
@@ -280,7 +293,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ("index", "qarbon", u"qarbon Documentation",
+  ("index", "qarbon", u"Qarbon documentation",
    u"Tiago Coutinho", "qarbon", qarbon.release.description,
    "Miscellaneous"),
 ]

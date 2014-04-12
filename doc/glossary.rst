@@ -417,13 +417,9 @@ Glossary
 .. _PyTango: http://packages.python.org/PyTango/
 .. _Taurus: http://packages.python.org/taurus/
 .. _QTango: http://www.tango-controls.org/download/index_html#qtango3
-.. _Qt: http://qt.nokia.com/products/
 .. _PyQt: http://www.riverbankcomputing.co.uk/software/pyqt/
 .. _PyQwt: http://pyqwt.sourceforge.net/
-.. _Python: http://www.python.org/
-.. _IPython: http://ipython.scipy.org/
 .. _ATK: http://www.tango-controls.org/Documents/gui/atk/tango-application-toolkit
 .. _Qub: http://www.blissgarden.org/projects/qub/
-.. _numpy: http://numpy.scipy.org/
 .. _SPEC: http://www.certif.com/
 .. _EPICS: http://www.aps.anl.gov/epics/

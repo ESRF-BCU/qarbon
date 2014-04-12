@@ -59,7 +59,11 @@ class XCommandWidget(QtGui.QWidget):
     DefaultWinIdParam = '-into'
 
     def __init__(self, parent=None):
-        super(XCommandWidget, self).__init__(parent)
+        QtGui.QWidget.__init__(self, parent)
+        self.__command = None
+        self.__winIdParam = None
+        self.__extraParams = None
+        self.__autoRestart = None
         self.__process = QtCore.QProcess(self)
         self.__x11_widget = x11_widget = QtGui.QX11EmbedContainer(self)
         layout = QtGui.QVBoxLayout(self)
@@ -74,6 +78,7 @@ class XCommandWidget(QtGui.QWidget):
 
     def __onError(self, error):
         log.error("XEmbedContainer: Error")
+        log.debug("XEmbedContainer: Error details: %s", error)
 
     def __convert_wait(self, wait):
         if wait:
@@ -364,11 +369,25 @@ def main():
     log.initialize(log_level='debug')
     app = Application()
     w = XTermWindow()
-    w.extraParams = ["-e", "ipython"]
+#   w.extraParams = ["-e", "ipython"]
     w.start()
     w.show()
     app.exec_()
 
 
+def main():
+    log.initialize(log_level='debug')
+    app = Application()
+
+    w = QtGui.QX11EmbedContainer()
+    w.setFocusPolicy(QtCore.Qt.ClickFocus)
+    print w.focusPolicy()
+    p = QtCore.QProcess(w)
+    p.start("xterm", ["-into", str(w.winId())])
+    
+    w.show()
+    app.exec_()
+    p.close()
+    
 if __name__ == "__main__":
     main()

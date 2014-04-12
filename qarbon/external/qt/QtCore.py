@@ -14,6 +14,7 @@ from qarbon.external.qt import getQt
 
 __backend = getQt().__name__
 
+
 def __to_qvariant_1(pyobj=None):
     """Properly converts a python object into a proper QVariant according to
     the PySide or PyQt API version in use
@@ -118,7 +119,6 @@ if __backend == 'PyQt4':
         to_qvariant = __to_qvariant_2
         from_qvariant = __from_qvariant_2
 
-
     if not PYQT_QSTRING_API_1:
         __QtCore.QString = QString = __QString_2
         __QtCore.QStringList = QStringList = __QStringList_2
@@ -146,7 +146,6 @@ elif __backend == 'PyQt5':
     from_qvariant = __from_qvariant_2
     __QtCore.QString = QString = __QString_2
     __QtCore.QStringList = QStringList = __QStringList_2
-
 
     from PyQt5.QtCore import *
 

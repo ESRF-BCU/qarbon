@@ -17,11 +17,6 @@ import imp
 import sys
 import warnings
 
-try:
-    import sip
-except ImportError:
-    sip = None
-
 import qarbon.config
 
 from qarbon import log
@@ -103,7 +98,16 @@ def __remove_inputhook():
 # PyQt4
 #------------------------------------------------------------------------------
 
+def __get_sip():
+    try:
+        import sip
+    except ImportError:
+        sip = None
+    return sip
+
+
 def __setPyQt4API(element, api_version=2):
+    sip = __get_sip()
     try:
         ver = sip.getapi(element)
     except ValueError:
@@ -113,7 +117,7 @@ def __setPyQt4API(element, api_version=2):
         try:
             sip.setapi(element, api_version)
             log.debug("%s API set to version %d",
-                      element, sip.getapi("QString"))
+                      element, sip.getapi(element))
         except ValueError:
             log.warning("Error setting %s API to version %s", element,
                         api_version, exc_info=1)
@@ -126,10 +130,11 @@ def __setPyQt4API(element, api_version=2):
 
 def __preparePyQt4():
 
-    # In python 3 both QString and QVariant API are set to level 2 so
-    # nothing to do
+    # In python 3 APIs are set to level 2 so nothing to do
     if sys.version_info[0] > 2:
         return __import("PyQt4")
+
+    sip = __get_sip()
 
     # For PySide compatibility, use the new-style string API that
     # automatically converts QStrings to Unicode Python strings. Also,
@@ -140,7 +145,12 @@ def __preparePyQt4():
         sip_ver = sip.SIP_VERSION_STR
         log.warning("Using old sip %s (advised >= 4.9)", sip_ver)
     else:
+        __setPyQt4API("QDate", 2)
+        __setPyQt4API("QDateTime", 2)
         __setPyQt4API("QString", 2)
+        __setPyQt4API("QTextStream", 2)
+        __setPyQt4API("QTime", 2)
+        __setPyQt4API("QUrl", 2)
         __setPyQt4API("QVariant", 2)
 
     return __import("PyQt4")

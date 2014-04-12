@@ -285,7 +285,7 @@ class TangoErrorFormatterPlugin(BaseErrorFormatterPlugin):
         return "Tango Error"
 
     def toErrorHtml(self, err_type=None, err_value=None, err_traceback=None):
-        return err_value[0].desc
+        return err_value.args[0].desc
 
     def toDetailedErrorHtml(self, err_type=None, err_value=None,
                             err_traceback=None):
@@ -296,7 +296,7 @@ class TangoErrorFormatterPlugin(BaseErrorFormatterPlugin):
             formatter = HtmlFormatter()
             style = formatter.get_style_defs()
         html = html_orig.format(style=style)
-        for de in err_value:
+        for de in err_value.args:
             e_html = """<pre>{reason}: {desc}</pre>{origin}<hr>"""
             origin, reason, desc = de.origin, de.reason, de.desc
             if reason.startswith("PyDs_") and pygments is not None:
